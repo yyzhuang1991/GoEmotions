@@ -286,5 +286,7 @@ if __name__ == '__main__':
     cli_parser.add_argument("--taxonomy", type=str, required=True, help="Taxonomy (original, ekman, group)")
 
     cli_args = cli_parser.parse_args()
+    cli_args.do_train = False 
+    cli_args.do_eval = True
 
     main(cli_args)
