@@ -223,21 +223,20 @@ def main(cli_args):
 
     processor = GoEmotionsProcessor(args)
     label_list = processor.get_labels()
-    print("haha")
-    # config = BertConfig.from_pretrained(
-    #     args.model_name_or_path,
-    #     num_labels=len(label_list),
-    #     finetuning_task=args.task,
-    #     id2label={str(i): label for i, label in enumerate(label_list)},
-    #     label2id={label: i for i, label in enumerate(label_list)}
-    # )
-    # tokenizer = BertTokenizer.from_pretrained(
-    #     args.tokenizer_name_or_path,
-    # )
-    # model = BertForMultiLabelClassification.from_pretrained(
-    #     args.model_name_or_path,
-    #     config=config
-    # )
+    config = BertConfig.from_pretrained(
+        args.model_name_or_path,
+        num_labels=len(label_list),
+        finetuning_task=args.task,
+        id2label={str(i): label for i, label in enumerate(label_list)},
+        label2id={label: i for i, label in enumerate(label_list)}
+    )
+    tokenizer = BertTokenizer.from_pretrained(
+        args.tokenizer_name_or_path,
+    )
+    model = BertForMultiLabelClassification.from_pretrained(
+        args.model_name_or_path,
+        config=config
+    )
 
     # # GPU or CPU
     # args.device = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
