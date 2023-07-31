@@ -239,6 +239,7 @@ def main(cli_args):
         config=config
     )
 
+    print("haha")
     # GPU or CPU
     args.device = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
     model.to(args.device)
@@ -247,7 +248,7 @@ def main(cli_args):
     train_dataset = load_and_cache_examples(args, tokenizer, mode="train") if args.train_file else None
     dev_dataset = load_and_cache_examples(args, tokenizer, mode="dev") if args.dev_file else None
     test_dataset = load_and_cache_examples(args, tokenizer, mode="test") if args.test_file else None
-    print("haha")
+
 
     if dev_dataset is None:
         args.evaluate_test_during_training = True  # If there is no dev dataset, only use test dataset
