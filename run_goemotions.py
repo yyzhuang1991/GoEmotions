@@ -223,7 +223,7 @@ def main(cli_args):
 
     processor = GoEmotionsProcessor(args)
     label_list = processor.get_labels()
-
+    print("haha")
     config = BertConfig.from_pretrained(
         args.model_name_or_path,
         num_labels=len(label_list),
@@ -239,7 +239,6 @@ def main(cli_args):
         config=config
     )
 
-    print("haha")
     # GPU or CPU
     args.device = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
     model.to(args.device)
