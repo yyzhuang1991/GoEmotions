@@ -233,10 +233,10 @@ def main(cli_args):
     tokenizer = BertTokenizer.from_pretrained(
         args.tokenizer_name_or_path,
     )
-    model = BertForMultiLabelClassification.from_pretrained(
-        args.model_name_or_path,
-        config=config
-    )
+    # model = BertForMultiLabelClassification.from_pretrained(
+    #     args.model_name_or_path,
+    #     config=config
+    # )
 
     # # GPU or CPU
     # args.device = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
